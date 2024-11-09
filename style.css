@@ -1,0 +1,487 @@
+  /* Import your custom font */
+@font-face {
+    font-family: 'Refinery 95';
+    src: url('fonts/refinery-95-regular.ttf') format('truetype');
+}
+
+/* Reset some browser defaults */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling with a lighter pink-to-white gradient background */
+body {
+    font-family: 'Refinery 95', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+html, body {
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-width: 100vw; /* Ensure the width does not exceed the viewport width */
+    overflow-y: auto;
+    background: linear-gradient(180deg, #3e1b47, #1a1a2e);
+}
+
+/* Centralize everything within the container */
+
+
+/* Images with a Halloween-themed glow */
+.flex-image {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.flex-image.active {
+    box-shadow: 0 0 30px 10px rgba(249, 115, 4, 0.9); /* Bright orange glow when active */
+}
+
+
+/* Descriptions for each image */
+.image-description {
+    font-size: 1rem;
+    color: #e6c800;
+    margin-top: 5px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#error-msg {
+    font-size: 1rem;
+    color: red;
+    margin-bottom: 15px; /* Add margin below the warning */
+}
+
+#warning-msg, #item-warning-msg {
+    font-size: 1rem;
+    color: red;
+    text-align: center; /* Keep it centered below instruction */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+    .flex-image {
+        max-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    .flex-image {
+        max-width: 120px;
+    }
+}
+
+.selectplatformtext {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+/* Sequence - -------------------------------------------------------------------------------------------------------------------------------- */
+/* Sequence - --------------------------------------------------------------------------------------------------------------------------------- */
+/* Sequence - --------------------------------------------------------------------------------------------------------------------------------- */
+/* Sequence   --------------------------------------------------------------------------------------------------------------------------------- */
+/* Sequence -  --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Sequence box with a haunted background */
+.sequence-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 450px;
+    height: 300px;
+    padding: 20px;
+    background-color: rgba(26, 10, 46, 0.9); /* Transparent dark background */
+    border: 2px solid #f97304;
+    border-radius: 25px;
+    margin-top: 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease-out;
+    z-index: 2;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .sequence-box {
+        width: 95%;  /* Set width to 95% on mobile */
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+/* Pulse animation for spooky elements */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 1s infinite ease-in-out;
+}
+
+
+/* Platform buttons styling */
+.platform-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.platform-button {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    background-color: #eb592c;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 102, 178, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    font-size: 1.6em;
+    color: white;
+}
+
+.platform-button img {
+    max-width: 60px;
+    height: auto;
+}
+
+.platform-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 64, 129, 0.7);
+}
+
+.loading-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dot {
+    width: 15px; /* Dot size */
+    height: 15px; /* Dot size */
+    margin: 0 5px;
+    border-radius: 50%;
+    background-color: #ffcc00; /* Bright yellow for spooky feel */
+    animation: pulse 0.6s infinite alternate;
+}
+
+.loading-dot:nth-child(2) {
+    animation-delay: 0.2s; /* Delay for the second dot */
+}
+
+.loading-dot:nth-child(3) {
+    animation-delay: 0.4s; /* Delay for the third dot */
+}
+/* Adjust the size of the images to be visually appealing */
+#search-image, #tick-image, #transferring-image, #success-tick-image {
+    width: 120px;
+    height: auto;
+    margin: 10px 0;
+}
+
+#search-text, #verification-text, #connected-text, #username-transferring-text, #connecting-text, #transferring-text, #success-transfer-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #ffcc00; /* Bright yellow for spooky feel */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); 
+}
+
+/* Simple transition when showing elements */
+.sequence-box {
+    transition: opacity 0.5s ease-out;
+}
+
+/* Define a pop-in effect */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5); /* Start smaller */
+        opacity: 0;            /* Start invisible */
+    }
+    100% {
+        transform: scale(1);    /* Full size */
+        opacity: 1;             /* Fully visible */
+    }
+}
+
+/* Define a pop-out effect */
+@keyframes popOut {
+    0% {
+        transform: scale(1);    /* Full size */
+        opacity: 1;             /* Fully visible */
+    }
+    100% {
+        transform: scale(0.5);  /* Shrink down */
+        opacity: 0;             /* Fully invisible */
+    }
+}
+
+/* Apply the pop-in animation */
+.pop-in {
+    animation: popIn 0.5s ease forwards;  /* Animation duration and easing */
+}
+
+/* Apply the pop-out animation */
+.pop-out {
+    animation: popOut 0.5s ease forwards;  /* Animation duration and easing */
+}
+
+.pop-in-pulse {
+    animation: popIn 0.5s ease forwards, pulse 1s infinite ease-in-out;
+}
+
+/* Spinning animation for the loading cog */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.spinning-cog {
+    width: 100px;
+    height: 100px;
+    margin: 20px 0;
+    animation: spin 2s linear infinite;  /* Continuous spinning */
+}
+
+/* Styling for the transferring box image */
+.box-image {
+    width: 120px;
+    height: auto;
+    margin: 20px 0;
+}
+
+
+/* Spinning cog animation for username transferring */
+#loading-username-image {
+    width: 100px;
+    height: auto;
+    animation: spin 2s linear infinite;
+}
+
+
+/* Style for the verification cross */
+.verification-cross {
+    width: 100px;
+    height: auto;
+    margin: 20px 0;
+}
+
+/* Verify button styling */
+#verify-btn {
+    padding: 10px 20px;
+    background-color: #f19749;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+    margin-top: 20px; /* Add some margin to space it from the verification text */
+}
+
+
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+/* Balloons - floating upwards  --------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Balloons with Halloween colors */
+.balloon {
+    position: fixed;
+    bottom: -50px;
+    width: 60px;
+    height: 80px;
+    background-color: #f97304; /* Pumpkin orange */
+    border-radius: 50% 50% 45% 45%;
+    box-shadow: inset -5px -5px 15px rgba(0, 0, 0, 0.1),
+                0 5px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    animation: float 8s ease-in-out infinite;
+}
+
+.balloon.white {
+    background-color: #e6c800; /* Witchy yellow */
+}
+
+/* Reflection effect */
+.balloon::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 15%;
+    width: 20px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.6); /* Simulated reflection */
+    border-radius: 50%;
+    transform: rotate(-20deg);
+}
+
+/* Knot at the bottom */
+.balloon::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: inherit;
+    border-radius: 50%;
+}
+
+/* Balloon string */
+.balloon .string {
+    position: absolute;
+    bottom: -80px;
+    left: 50%;
+    width: 2px;
+    height: 80px;
+    background-color: #999;
+    transform-origin: top; /* Fixes string detachment by anchoring its top */
+    transform: translateX(-50%) rotate(0deg);
+    animation: sway 2s ease-in-out infinite;
+}
+
+/* Floating animation */
+@keyframes float {
+    0% {
+        transform: translateY(50vh) translateX(0);
+    }
+    100% {
+        transform: translateY(-120vh) translateX(-10px); /* Moves straight up and off the screen */
+    }
+}
+
+/* Swaying string */
+@keyframes sway {
+    0% {
+        transform: translateX(-50%) rotate(0deg); /* Keeps the string centered */
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg); /* Gentle sway */
+    }
+    100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+}
+
+
+
+/* POP UP + announcemnt ------------------------------------------------------------------------------------------------ */
+/* POP UP + announcemnt ------------------------------------------------------------------------------------------------ */
+/* POP UP + announcemnt ------------------------------------------------------------------------------------------------ */
+/* POP UP + announcemnt ------------------------------------------------------------------------------------------------ */
+/* POP UP + announcemnt ------------------------------------------------------------------------------------------------ */
+
+
+/* Popup box for claims */
+#claim-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent white background */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    width: 250px;
+    z-index: 10; /* Above balloons, but below content */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#claim-popup.hidden {
+    opacity: 0;
+    transform: translateY(100px); /* Hidden by default */
+}
+
+.popup-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.popup-content {
+    flex-grow: 1;
+}
+
+#claim-username {
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+#claim-message {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+
+/* Glow effect for Halloween announcement */
+.promo-strip {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #f97304; /* Bright orange */
+    text-align: center;
+    padding: 8px 0;
+    font-family: 'Refinery 95', sans-serif;
+    font-size: 15px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
+}
+
+.promo-link {
+    color: #ffecf3;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.promo-link:hover {
+    color: #f97304; /* Glow effect on hover */
+    transform: scale(1.05);
+}
+
+
+/* Error message styling with Halloween colors */
+#error-msg, #warning-msg, #item-warning-msg {
+    font-size: 1rem;
+    color: #e65c00; /* Darker orange for warnings */
+    text-align: center;
+    margin-bottom: 15px;
+}  
